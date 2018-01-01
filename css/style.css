@@ -2,6 +2,16 @@ body{
     padding: 0;
     margin: 0;
 }
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.clearFix::after{
+    content:"";
+    display: block;
+    clear: both;
+}
 
 .carousel-box{
     width: 500px;
@@ -12,16 +22,13 @@ body{
     position: relative;
 }
 
-ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.slider{
     width: 100%;
     height: 100%;
     position: relative;
 }
 
-li{
+.slider li{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -31,7 +38,7 @@ li{
     transition: all 3s;
 }
 
-li img {
+.slider li img {
     position: absolute;
     width: 100%;
     top: 50%;
@@ -39,27 +46,27 @@ li img {
     transform: translate(-50%, -50%);
 }
 
-li.active{
+.slider li.active{
     left: 0;
     display: block;
 }
-li.next-active,li.prev-active,li.next,li.prev{
+.slider li.next-active, .slider li.prev-active, .slider li.next,li.prev{
     display: block;
     animation-duration: 0.6s;
     animation-fill-mode: forwards;
 }
-li.next-active{
+.slider li.next-active{
     animation-name: next-active;
 }
 
-li.prev-active{
+.slider li.prev-active{
     animation-name: prev-active;
 }
 
-li.next{
+.slider li.next{
     animation-name: next;
 }
-li.prev{
+.slider li.prev{
     animation-name: prev;
 }
 
@@ -81,6 +88,24 @@ li.prev{
     left:0;
     top: 50%;
     transform: translate(0, -50%);
+}
+
+.pagenation{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 35px;
+    transform: translate(-50%, 0);
+    content:"";
+    display: block;
+    clear: both;
+}
+.pagenation li {
+    float: left;
+    margin-left:5px;
+}
+.pagenation li:first-child{
+    margin-left: 0;
 }
 
 @keyframes next {
